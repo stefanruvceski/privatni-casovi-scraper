@@ -21,8 +21,8 @@ def login():
 
 
 def get_info(token):
-    url = f"https://privatni-casovi.net/sessions/{token}/login"
-    driver.get(url)
+    #url = f"https://privatni-casovi.net/sessions/{token}/login"
+    #driver.get(url)
     time.sleep(1)
     urls =  ['https://privatni-casovi.net/python/predmet',
             'https://privatni-casovi.net/c/predmet' ,
@@ -34,13 +34,13 @@ def get_info(token):
             'https://privatni-casovi.net/iz-c-i-c-plus-plusa/predmet' ,
             'https://privatni-casovi.net/informatika-i-racunarstvo/predmet'
             ]
-
+    result = []
     for index in range(0,len(urls)):
 
         driver.get(urls[index])
 
         profiles = driver.find_elements_by_class_name('profile-card');
-        result = []
+        
         i = 0
         for profile in profiles:
             name = profile.find_element_by_class_name('name').find_element_by_tag_name('a').text;
