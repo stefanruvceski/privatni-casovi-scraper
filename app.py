@@ -1,4 +1,4 @@
-from flask import Flask ,jsonify
+from flask import Flask ,jsonify,render_template
 from selenium import webdriver
 import os
 from casovi_scraper import login, get_info
@@ -13,7 +13,7 @@ def dojob():
 def getinfo(token):
     try:
         result = get_info(token)
-        return jsonify({'response' : result}),200
+        return render_template("index.html", names=result)
     except:
         return jsonify({'response' : token}),200
 @app.route("/")

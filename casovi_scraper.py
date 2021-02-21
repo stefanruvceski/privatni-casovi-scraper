@@ -21,8 +21,8 @@ def login():
 
 
 def get_info(token):
-    #url = f"https://privatni-casovi.net/sessions/{token}/login"
-    #driver.get(url)
+    url = f"https://privatni-casovi.net/sessions/{token}/login"
+    driver.get(url)
     time.sleep(1)
     urls =  ['https://privatni-casovi.net/python/predmet',
             'https://privatni-casovi.net/c/predmet' ,
