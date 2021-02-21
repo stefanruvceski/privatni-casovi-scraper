@@ -20,7 +20,8 @@ def login():
     driver.find_element_by_xpath('/html/body/main/div/div/form/div[1]/div[2]/input').click()
 
 
-def get_info(url):
+def get_info(token):
+    url = f"https://privatni-casovi.net/sessions/{token}/login"
     driver.get(url)
     time.sleep(1)
     urls =  ['https://privatni-casovi.net/python/predmet',

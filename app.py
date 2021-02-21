@@ -9,11 +9,13 @@ def dojob():
     login()
     return jsonify({'response' : 'ok'}),200
 
-@app.route('/getinfo/<url>')
-def getinfo(url):
-    result = get_info(url)
-    return jsonify({'response' : result}),200
-
+@app.route('/getinfo/<token>')
+def getinfo(token):
+    try:
+        result = get_info(token)
+        return jsonify({'response' : result}),200
+    except:
+        return jsonify({'response' : token}),200
 @app.route("/")
 def index():
     return jsonify({'login': '/login'},{'getinfo':'/getlist/url'}),200
