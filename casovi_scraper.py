@@ -3,16 +3,11 @@ from selenium.webdriver.chrome.options import Options
 import time,os
 
 
-options = webdriver.ChromeOptions()
-options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
-options.add_argument('--headless')
-options.add_argument('--no-sandbox')   
-options.add_argument('--disabele-dev-sh-usage')   
-driver = webdriver.Chrome(executable_path=os.environ.get('CHROMEDRIVER_PATH'), chrome_options=options)
+
 
 # driver = webdriver.Chrome()
 
-def login(emaildata):
+def login(driver,emaildata):
     url = 'https://privatni-casovi.net/sessions/new'
     driver.get(url)
     time.sleep(1)
@@ -22,7 +17,7 @@ def login(emaildata):
     driver.find_element_by_xpath('/html/body/main/div/div/form/div[1]/div[2]/input').click()
 
 
-def get_info(token):
+def get_info(driver,token):
     url = f"https://privatni-casovi.net/sessions/{token}/login"
     driver.get(url)
     time.sleep(1)
