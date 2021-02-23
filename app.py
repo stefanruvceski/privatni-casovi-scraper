@@ -4,16 +4,14 @@ import os
 from casovi_scraper import login, get_info
 app = Flask(__name__)
 
-
-
 @app.route("/login",methods = ['POST', 'GET'])
 def llogin():
-    #try:
+    try:
         email = request.form['email']
         login(email)
         return render_template("token.html")
-    #except:
-        #return render_template("error.html",err='Doslo je do greske prilikom prijave')
+    except:
+        return render_template("error.html",err='Greska prilikom prijave')
 
 @app.route("/getstats",methods = ['POST', 'GET'])
 def getinfo():
@@ -22,7 +20,7 @@ def getinfo():
         my_name,stats = get_info(token)
         return render_template("index.html", stats=stats, my_name=my_name)
     except:
-        return render_template("error.html",err='Doslo je do greske prilikom kreiranja statistike')
+        return render_template("error.html",err='Greska prilikom kreiranja statistike')
     
 @app.route("/")
 def index():
