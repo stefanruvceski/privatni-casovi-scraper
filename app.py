@@ -8,12 +8,12 @@ app = Flask(__name__)
 
 @app.route("/login",methods = ['POST', 'GET'])
 def login():
-    try:
+    #try:
         email = request.form['email']
         login(email)
         return render_template("token.html")
-    except:
-        return render_template("error.html",err='Doslo je do greske prilikom prijave')
+    #except:
+        #return render_template("error.html",err='Doslo je do greske prilikom prijave')
 
 @app.route("/getstats",methods = ['POST', 'GET'])
 def getinfo():
