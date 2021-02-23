@@ -8,6 +8,13 @@ import time,os
 # driver = webdriver.Chrome()
 
 def login(driver,emaildata):
+    options = webdriver.ChromeOptions()
+    options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')   
+    options.add_argument('--disabele-dev-sh-usage')   
+    driver = webdriver.Chrome(executable_path=os.environ.get('CHROMEDRIVER_PATH'), chrome_options=options)
+    time.sleep(1)
     url = 'https://privatni-casovi.net/sessions/new'
     driver.get(url)
     time.sleep(1)
@@ -15,9 +22,16 @@ def login(driver,emaildata):
     email.send_keys(emaildata)
 
     driver.find_element_by_xpath('/html/body/main/div/div/form/div[1]/div[2]/input').click()
-
+    driver.quit()
 
 def get_info(driver,token):
+    options = webdriver.ChromeOptions()
+    options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')   
+    options.add_argument('--disabele-dev-sh-usage')   
+    driver = webdriver.Chrome(executable_path=os.environ.get('CHROMEDRIVER_PATH'), chrome_options=options)
+    time.sleep(1)
     url = f"https://privatni-casovi.net/sessions/{token}/login"
     driver.get(url)
     time.sleep(1)
@@ -45,7 +59,7 @@ def get_info(driver,token):
             if name == my_name:
                 result.append(f'{i} na listi za predmet {urls[index].split("/")[3]}')
                 break
-    
+    driver.quit()
     return my_name,result
 
     
