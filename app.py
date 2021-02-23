@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 
 @app.route("/login",methods = ['POST', 'GET'])
-def login():
+def llogin():
     #try:
         email = request.form['email']
         login(email)

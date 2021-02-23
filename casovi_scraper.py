@@ -7,7 +7,7 @@ import time,os
 
 # driver = webdriver.Chrome()
 
-def login(driver,emaildata):
+def login(emaildata):
     options = webdriver.ChromeOptions()
     options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
     options.add_argument('--headless')
@@ -24,7 +24,7 @@ def login(driver,emaildata):
     driver.find_element_by_xpath('/html/body/main/div/div/form/div[1]/div[2]/input').click()
     driver.quit()
 
-def get_info(driver,token):
+def get_info(token):
     options = webdriver.ChromeOptions()
     options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
     options.add_argument('--headless')
