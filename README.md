@@ -1,5 +1,6 @@
 # privatni-casovi-scraper
 
-![image](https://user-images.githubusercontent.com/36955966/112305769-61986c80-8c9f-11eb-9bbb-b80826a28e84.png)
+![image](https://user-images.githubusercontent.com/36955966/112306070-b340f700-8c9f-11eb-94e7-9dc4198ef5fd.png)
+
 
  
